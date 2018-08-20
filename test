@@ -1,0 +1,21 @@
+import sine, envelope
+from scipy import fft
+
+
+
+s = sine.Sine(70, 10000, 1.0)
+s.graph()
+s.wav()
+s.addHarmonic(3, 90)
+s.addHarmonic(5, 100)
+s.addHarmonic(19, 150)
+s.addWave(sine.Sine(50, 10000, 1))
+s.graph()
+s.wav()
+e = envelope.Envelope([5, 90], [20, 45], [70, 10], [90, 1])
+e.apply(s)
+e.graph()
+
+
+s.wav()
+s.graph()
